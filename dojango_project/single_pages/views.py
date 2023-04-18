@@ -1,6 +1,12 @@
 from django.shortcuts import render
 
-# Create your views here.
-def main(request):
+from blog.models import Post
 
-    return render(request,'single_pages/main.html')
+
+# Create your views here.
+def main(request, recent_posts=None):
+    resent_posts = Post.objects.order_by('-pk')[:3]
+    return render(request,'single_pages/main.html',
+                  {
+                      'recent_posts': recent_posts,
+                  })
