@@ -13,8 +13,9 @@
 
      <h1>Blog {% if category %} postings with category {{ category }}
      {% endif %}
-     {% if tag %} postings with tag {{ tag }}
-     {% endif %}
+        {% if tag %} postings with tag {{ tag }}
+
+        {% endif %}
 
      </h1>
 
@@ -27,13 +28,13 @@
                         <img class="card-img-top" src="/media/blog/images/2023/03/28/1801615.png">
                     {% endif %}
                     <div class="card-body">
-                        <h2 class="card-title">{{ p.title}} ({{ p.category }})</h2>
+                        <h2 class="card-title">{{ p.title }} ({{ p.category }})</h2>
                         <p class="card-text">{{ p.get_content_markdown | truncatewords:30 | safe }}</p>
 
                         <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
-                        Posted on {{ p.created_at}} by
+                        Posted on {{ p.created_at }} by
                         <a href="#">{{ p.author }}</a>
                     </div>
                 </div>

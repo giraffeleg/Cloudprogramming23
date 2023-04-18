@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>메인페이지</title>
@@ -7,12 +7,13 @@
 <body>
 <nav><a href="/blog/">BLOG</a></nav>
 <h1>대문페이지</h1>
+
 {% for post in recent_posts %}
     <div>
-    <h4><a href="{{ post.get_absolute_url }}"></a> {{ post.title }} by {{ post.author }}</h4>
-    <p>{{ post.content | truncatewords:30 }}</p>
+        <h4><a href="{{ post.get_absolute_url }}">{{ post.title }} by {{ post.author }}</a></h4>
+        <p> {{ post.content | truncatewords:30 }}</p>
     </div>
-    {% endfor %}
+{% endfor %}
 
 
 </body>
